@@ -10,6 +10,7 @@ formEl.addEventListener(
   'input',
   throttle(e => {
     let completedForm = localStorage.getItem(STORAGE_KEY);
+
     completedForm = completedForm ? JSON.parse(completedForm) : {};
     completedForm[e.target.name] = e.target.value;
     console.log(completedForm);
