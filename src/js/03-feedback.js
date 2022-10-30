@@ -20,10 +20,20 @@ formEl.addEventListener(
 );
 
 function onFormSubmit(e) {
+  const formData = {
+    email: '',
+    message: '',
+  };
+  const {
+    elements: { email, message },
+  } = e.target;
   e.preventDefault();
-  e.currentTarget.reset();
-  console.log(localStorage.getItem(STORAGE_KEY));
+
+  formData.email = email.value;
+  formData.message = message.value;
+  console.log(formData);
   localStorage.removeItem(STORAGE_KEY);
+  e.currentTarget.reset();
 }
 
 function onFillingForm() {
